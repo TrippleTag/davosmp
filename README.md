@@ -1,2 +1,0 @@
-# davosmp
-Tienda de DavoSMP
