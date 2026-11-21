@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07100a">
+  <meta name="description" content="Tienda oficial de DavoSMP. Consigue rangos y llaves para tu aventura.">
+  <title>DavoSMP — Tienda oficial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#070b08;--panel:#101812;--panel2:#141f17;--green:#65ed69;--muted:#a4b1a6;--line:#26352a;--white:#f4f8f3}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,Arial,sans-serif}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% -15%,rgba(65,205,75,.17),transparent 55%),radial-gradient(circle at 5% 50%,rgba(45,120,55,.08),transparent 30%)}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.07)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:1px}.brand img{width:138px;height:auto;object-fit:contain}
+    nav{display:flex;gap:28px;color:#c0cbc1;font-size:13px;font-weight:700}nav a:hover{color:var(--green)}
+    .nav-cta,.btn{border:0;border-radius:10px;padding:13px 18px;background:var(--green);color:#071008;font-weight:900;font-size:13px;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+    .nav-cta:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .hero{padding:78px 0 64px;text-align:center;position:relative}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid #29452d;background:#102015;border-radius:30px;color:#9af39d;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+    .dot{width:7px;height:7px;border-radius:50%;background:#65ed69;box-shadow:0 0 12px #65ed69}
+    h1,h2,h3,p{margin-top:0}.hero h1{font-family:"Barlow Condensed",Impact,sans-serif;font-size:clamp(58px,9vw,105px);line-height:.9;letter-spacing:1px;margin:25px 0 18px;text-transform:uppercase}
+    .hero h1 span{color:var(--green);text-shadow:0 0 35px rgba(101,237,105,.22)}.hero p{color:var(--muted);max-width:560px;margin:0 auto 28px;line-height:1.7;font-size:15px}
+    .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn.secondary{background:#17231a;color:#e9f1e9;border:1px solid #344638}
+    .server-pill{margin:34px auto 0;display:inline-flex;align-items:center;gap:12px;background:#0e1510;border:1px solid var(--line);padding:11px 14px;border-radius:12px;color:#b9c6ba;font-size:12px}
+    .server-pill strong{color:#fff;letter-spacing:.4px}.copy{border:0;background:transparent;color:var(--green);font-weight:800;cursor:pointer}
+    section{padding:56px 0}.section-head{text-align:center;margin-bottom:30px}.kicker{font-size:11px;color:var(--green);font-weight:900;letter-spacing:2px;text-transform:uppercase}.section-head h2{font-family:"Barlow Condensed",Impact,sans-serif;text-transform:uppercase;font-size:clamp(38px,5vw,54px);margin:9px 0}.section-head p{color:var(--muted);font-size:14px}
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:850px;margin:auto}
+    .product{position:relative;overflow:hidden;background:linear-gradient(145deg,#162219,#0d140f 70%);border:1px solid var(--line);border-radius:18px;padding:27px;min-height:270px;display:flex;flex-direction:column}
+    .product:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-65px;top:-75px;background:var(--glow);filter:blur(65px);opacity:.16;pointer-events:none}
+    .product-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:900;padding:7px 10px;border-radius:7px;background:var(--tagbg);color:var(--accent)}
+    .rank-icon{width:48px;height:48px;border-radius:13px;background:var(--tagbg);display:grid;place-items:center;color:var(--accent);font-size:24px;font-weight:900}
+    .product h3{font-family:"Barlow Condensed",Impact,sans-serif;font-size:38px;text-transform:uppercase;margin:21px 0 8px;color:var(--accent)}
+    .product p{font-size:13px;line-height:1.65;color:#aebbb0;margin-bottom:20px;max-width:330px}
+    .features{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 22px}.features span{font-size:10px;color:#c9d4ca;background:#ffffff08;border:1px solid #ffffff12;padding:6px 8px;border-radius:6px}
+    .buy-row{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.price{font-weight:900;font-size:22px}.price small{display:block;color:#819084;font-size:9px;font-weight:600;margin-top:3px}
+    .product .btn{background:var(--accent);color:#071008}.king{--accent:#ffd34e;--glow:#ffc928;--tagbg:#382d12}.vip{--accent:#64cfff;--glow:#32bfff;--tagbg:#102d3b}
+    .keys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:950px;margin:auto}.key-card{background:#101812;border:1px solid var(--line);border-radius:16px;padding:23px;text-align:center;position:relative;overflow:hidden}
+    .key-card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:var(--accent)}.key-symbol{font-size:35px;color:var(--accent);margin:5px 0 12px;text-shadow:0 0 22px var(--glow)}
+    .key-card h3{font-family:"Barlow Condensed",Impact,sans-serif;text-transform:uppercase;font-size:29px;margin:0 0 7px;color:var(--accent)}.key-card p{font-size:12px;color:var(--muted);min-height:36px;line-height:1.5}
+    .key-card .price{font-size:20px;margin:16px 0}.key-card .btn{width:100%;background:var(--accent);color:#071008}
+    .normal{--accent:#68ed70;--glow:#68ed70}.gold{--accent:#ffd34e;--glow:#ffd34e}.special{--accent:#55bfff;--glow:#55bfff}
+    .info{max-width:850px;margin:0 auto;background:#101812;border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .info h3{font-size:14px;margin-bottom:8px}.info p{font-size:12px;color:var(--muted);line-height:1.65;margin:0}
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:27px 0;color:#77847a;font-size:11px}.foot{display:flex;align-items:center;justify-content:space-between;gap:15px}.foot strong{color:#dce7dc}
+    .toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;background:#e8f8e9;color:#071008;padding:12px 17px;border-radius:10px;font-size:12px;font-weight:800;transition:.25s;pointer-events:none;z-index:10}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:700px){nav{display:none}.brand img{width:120px}.hero{padding:60px 0 45px}.cards{grid-template-columns:1fr}.keys-grid{grid-template-columns:1fr}.key-card p{min-height:0}.info{grid-template-columns:1fr}.foot{flex-direction:column;text-align:center}.product{min-height:250px}}
+  </style>
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="#"><img src="assets/davosmp-logo.png" alt="DavoSMP"></a>
+  <nav><a href="#rangos">Rangos</a><a href="#llaves">Llaves</a><a href="#info">Información</a></nav>
+  <a class="nav-cta" href="#rangos">ABRIR TIENDA ↗</a>
+</header>
+<main>
+  <div class="hero wrap">
+    <div class="eyebrow"><span class="dot"></span> TIENDA OFICIAL DAVOSMP</div>
+    <h1>Tu aventura.<br><span>Tus ventajas.</span></h1>
+    <p>Mejora tu experiencia en DavoSMP. Consigue rangos exclusivos y abre cofres con nuestras llaves especiales.</p>
+    <div class="hero-actions"><a class="btn" href="#rangos">VER RANGOS <span>↓</span></a><a class="btn secondary" href="#llaves">VER LLAVES</a></div>
+    <div class="server-pill"><span class="dot"></span><span>IP DEL SERVIDOR: <strong id="serverIp">play.davosmp.net</strong></span><button class="copy" onclick="copyIp()">COPIAR IP</button></div>
+  </div>
+
+  <section id="rangos" class="wrap">
+    <div class="section-head"><div class="kicker">Sube de nivel</div><h2>Elige tu rango</h2><p>Dos formas de destacar dentro de DavoSMP.</p></div>
+    <div class="cards">
+      <article class="product vip">
+        <div class="product-top"><span class="tag">Rango de jugador</span><div class="rank-icon">✦</div></div>
+        <h3>VIP</h3><p>Da el siguiente paso y disfruta de ventajas especiales en el servidor.</p>
+        <div class="features"><span>Ventajas VIP</span><span>Distintivo exclusivo</span><span>Más posibilidades</span></div>
+        <div class="buy-row"><div class="price" data-price="vip">3,99 €<small>PRECIO DE EJEMPLO</small></div><button class="btn" onclick="buy('vip')">COMPRAR VIP ↗</button></div>
+      </article>
+      <article class="product king">
+        <div class="product-top"><span class="tag">Rango superior</span><div class="rank-icon">♛</div></div>
+        <h3>KING</h3><p>El rango para quienes quieren llevar su aventura al máximo nivel.</p>
+        <div class="features"><span>Ventajas KING</span><span>Distintivo exclusivo</span><span>Beneficios premium</span></div>
+        <div class="buy-row"><div class="price" data-price="king">7,99 €<small>PRECIO DE EJEMPLO</small></div><button class="btn" onclick="buy('king')">COMPRAR KING ↗</button></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="llaves" class="wrap">
+    <div class="section-head"><div class="kicker">¿Qué habrá dentro?</div><h2>Llaves de cajas</h2><p>Escoge tu llave y prueba suerte con las recompensas.</p></div>
+    <div class="keys-grid">
+      <article class="key-card normal"><div class="key-symbol">⚿</div><h3>Normal</h3><p>Una llave para empezar a descubrir recompensas.</p><div class="price" data-price="normal">1,49 €</div><button class="btn" onclick="buy('normal')">COMPRAR LLAVE</button></article>
+      <article class="key-card gold"><div class="key-symbol">⚿</div><h3>Gold</h3><p>Una llave dorada para una caja de nivel superior.</p><div class="price" data-price="gold">2,99 €</div><button class="btn" onclick="buy('gold')">COMPRAR LLAVE</button></article>
+      <article class="key-card special"><div class="key-symbol">⚿</div><h3>Special</h3><p>La llave especial para recompensas únicas.</p><div class="price" data-price="special">4,99 €</div><button class="btn" onclick="buy('special')">COMPRAR LLAVE</button></article>
+    </div>
+  </section>
+
+  <section id="info" class="wrap">
+    <div class="section-head"><div class="kicker">Antes de comprar</div><h2>Información</h2></div>
+    <div class="info">
+      <div><h3>¿Cómo recibo mi compra?</h3><p>Cuando se conecte la tienda al sistema de pagos y al servidor, las compras podrán entregarse automáticamente dentro de Minecraft. Esta versión es la plantilla visual de la tienda.</p></div>
+      <div><h3>¿Necesitas ayuda?</h3><p>Contacta con el equipo de DavoSMP a través de vuestro Discord oficial. Añade aquí el enlace de invitación antes de publicar la web.</p></div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap foot"><span>© 2026 <strong>DavoSMP</strong>. Todos los derechos reservados.</span><span>Servidor independiente de Minecraft. No afiliado con Mojang ni Microsoft.</span></div></footer>
+<div class="toast" id="toast">IP copiada</div>
+<script>
+/*
+  CONFIGURACIÓN DE LA TIENDA:
+  1. Cambia SERVER_IP por la IP real.
+  2. Cambia los precios de ejemplo.
+  3. Pega el enlace de pago de cada producto en CHECKOUT_URLS.
+  4. Para entregar rangos/llaves automáticamente, conecta el pago con tu plugin
+     de tienda (por ejemplo, Tebex) y configura allí los comandos del servidor.
+*/
+const SERVER_IP = "play.davosmp.net";
+const PRICES = {vip:"3,99 €", king:"7,99 €", normal:"1,49 €", gold:"2,99 €", special:"4,99 €"};
+const CHECKOUT_URLS = {vip:"", king:"", normal:"", gold:"", special:""};
+document.getElementById("serverIp").textContent = SERVER_IP;
+document.querySelectorAll("[data-price]").forEach(el => {
+  const key = el.dataset.price;
+  el.firstChild.textContent = PRICES[key];
+});
+function toast(message){
+  const el=document.getElementById("toast"); el.textContent=message; el.classList.add("show");
+  setTimeout(()=>el.classList.remove("show"),2300);
+}
+function copyIp(){
+  navigator.clipboard.writeText(SERVER_IP).then(()=>toast("¡IP copiada!")).catch(()=>toast("IP: "+SERVER_IP));
+}
+function buy(product){
+  const url=CHECKOUT_URLS[product];
+  if(url){window.location.href=url;return;}
+  toast("Tienda en preparación: falta configurar el enlace de pago.");
+}
+</script>
+</body>
+</html>
